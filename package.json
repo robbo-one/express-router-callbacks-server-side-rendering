@@ -9,7 +9,7 @@
   "scripts": {
     "debug": "nodemon --inspect index.js",
     "test": "tape tests/**/*.test.js | tap-diff",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
