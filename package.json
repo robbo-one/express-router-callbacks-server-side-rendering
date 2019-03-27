@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/dev-academy-challenges/pupparazzi#readme",
   "dependencies": {
-    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0"
   },
