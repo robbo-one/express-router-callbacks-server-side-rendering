@@ -1,5 +1,7 @@
 const express = require('express')
 const hbs = require('express-handlebars')
+const fs = require('fs')
+const puppies = require('./data.json')
 
 const server = express()
 
@@ -12,6 +14,8 @@ server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
 // Your routes/router(s) should go here
-
+server.get('/', (req, res) => {
+  res.render('home', puppies)
+})
 
 module.exports = server
