@@ -1,6 +1,7 @@
 const express = require('express')
 const hbs = require('express-handlebars')
-
+const dogs = require('./data.json')
+const fs = require('fs')
 const server = express()
 
 
@@ -15,7 +16,16 @@ server.set('view engine', 'hbs')
 // Your routes/router(s) should go here
 
 server.get('/', (req,res) => {
-  res.send('<h1>Pupparazzi</h1>')
+  const dogdata = fs.readFile ("./data.json", "utf8", (err, data) => {
+    if (err) {
+      console.log("ERROR", err)
+    }
+    else {
+      return dogdata
+    }
+  })
+
+  res.render('home', dogdata)
 })
 
 module.exports = server
