@@ -16,16 +16,16 @@ server.set('view engine', 'hbs')
 // Your routes/router(s) should go here
 
 server.get('/', (req,res) => {
-  const dogdata = fs.readFile ("./data.json", "utf8", (err, data) => {
+  fs.readFile ("./data.json", "utf8", (err, data) => {
     if (err) {
       console.log("ERROR", err)
     }
     else {
-      return dogdata
+      data = JSON.parse(data)
+      res.render('home', data)
     }
   })
 
-  res.render('home', dogdata)
 })
 
 module.exports = server
