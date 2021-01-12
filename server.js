@@ -2,6 +2,7 @@ const express = require('express')
 const hbs = require('express-handlebars')
 const fs = require('fs')
 
+
 const server = express()
 
 // Server configuration
@@ -16,15 +17,20 @@ server.set('view engine', 'hbs')
 
 
 server.get('/', (req, res) => {
+  
   fs.readFile('./data.json', 'utf8', (err, filecontents) => {
+    const newFileConts = JSON.parse(filecontents)
   if(err){
     console.log('big error', err)
   } else {
     console.log('here are the puppies', filecontents)
-    res.send(filecontents)
+    res.render('home', newFileConts)
   }
 })
+
 })
+
+
 
 
 
