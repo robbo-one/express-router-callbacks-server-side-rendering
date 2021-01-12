@@ -1,8 +1,8 @@
 const express = require('express')
 const hbs = require('express-handlebars')
-const dogs = require('./data.json')
 const fs = require('fs')
 const server = express()
+const router = require('./routes')
 
 
 // Server configuration
@@ -25,7 +25,8 @@ server.get('/', (req,res) => {
       res.render('home', data)
     }
   })
-
 })
+
+server.use ('/puppies', router)
 
 module.exports = server
