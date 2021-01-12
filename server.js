@@ -28,5 +28,6 @@ server.get('/', (req,res) => {
 })
 
 server.use ('/puppies', router)
+ server.use ('/puppies/:id/edit', router)
 
 module.exports = server
