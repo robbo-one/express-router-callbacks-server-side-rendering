@@ -2,7 +2,7 @@
   "puppies": [
     {
       "id": 1,
-      "name": "Fido",
+      "name": "do",
       "owner": "Fred",
       "image": "/images/puppy1.jpg",
       "breed": "Labrador"
