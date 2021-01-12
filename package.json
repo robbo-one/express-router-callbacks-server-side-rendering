@@ -9,7 +9,7 @@
     "start": "node index",
     "dev": "nodemon index --ignore data.json",
     "lint": "eslint .",
-    "test": "jest --watchAll"
+    "test": "jest --watch"
   },
   "homepage": "https://github.com/dev-academy-challenges/pupparazzi#readme",
   "repository": {

@@ -3,6 +3,7 @@ const hbs = require('express-handlebars')
 
 const server = express()
 
+
 // Server configuration
 server.use(express.static('public'))
 server.use(express.urlencoded({ extended: false }))
@@ -13,5 +14,8 @@ server.set('view engine', 'hbs')
 
 // Your routes/router(s) should go here
 
+server.get('/', (req,res) => {
+  res.send('<h1>Pupparazzi</h1>')
+})
 
 module.exports = server
