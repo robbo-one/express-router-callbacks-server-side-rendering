@@ -2,6 +2,7 @@ const express = require('express')
 const hbs = require('express-handlebars')
 const fs = require('fs')
 const puppies = require('./data.json')
+const routes = require('./routes.js')
 
 const server = express()
 
@@ -17,5 +18,5 @@ server.set('view engine', 'hbs')
 server.get('/', (req, res) => {
   res.render('home', puppies)
 })
-
+server.use('/puppies', routes)
 module.exports = server
