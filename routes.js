@@ -51,7 +51,8 @@ router.get('/:id', (req, res) => {
           delete updatePuppy._locals
           
           
-          conata = require('./dat
+          console.log(data.puppies)
+
           const newPup = JSON.stringify(data, null, 2)
         
           fs.writeFile('data.json', newPup, 'utf8', (err) => {
