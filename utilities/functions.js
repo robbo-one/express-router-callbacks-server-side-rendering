@@ -1,6 +1,7 @@
 const express = require('express')
 const hbs = require('express-handlebars')
 const fs = require('fs')
+
 //const server = express()
 //const router = require('./routes')
 
@@ -18,16 +19,18 @@ function importDetailsAsObject (callback){
   
 }
 
-function paramsId (callback){
-  fs.readFile ("./data.json", "utf8", (err, data) => {
-      if (err) {
-        console.log("ERROR", err)
-      }
-      else {
-       data = JSON.parse(data)
-       callback(dogDetails)
-  }   
-})}
+// function doggieData (callback){
+//   fs.readFile ("./data.json", "utf8", (err, data) => {
+//     if (err) {
+//       console.log("ERROR", err)
+//     }
+//     else {
+//       data = JSON.parse(data)
+//       const id = req.params.id
+//       const dogDetails = data.puppies.find(puppies => puppies.id == id)
+//       callback(dogDetails)
+//   }   
+// })}
 
 
 
@@ -35,5 +38,4 @@ function paramsId (callback){
 
 module.exports = {
   importDetailsAsObject,
-  paramsId
 }

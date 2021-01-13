@@ -2,14 +2,14 @@
   "puppies": [
     {
       "id": 1,
-      "name": "w",
+      "name": "Tom",
       "owner": "Fred",
       "image": "/images/puppy1.jpg",
       "breed": "Labrador"
     },
     {
       "id": 2,
-      "name": "Tom",
+      "name": "Tom May",
       "owner": "Steve",
       "image": "/images/puppy2.jpg",
       "breed": "Labrador"

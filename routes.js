@@ -4,28 +4,24 @@ const fs = require('fs')
 const router = express.Router()
 const func = require('./utilities/functions')
 
-
+// Pull data from data file and rendering to details
 router.get('/:id', (req,res) => {
   
-  func.importDetailsAsObject(data => res.render('details',data))
   
-  const id = req.params.id
-  const data = data.puppies.find(puppies => puppies.id == id)
-  
-
-  // fs.readFile ("./data.json", "utf8", (err, data) => {
-  //   if (err) {
-  //     console.log("ERROR", err)
-  //   }
-  //   else {
-  //     // data = JSON.parse(data)
-  //     // const id = req.params.id
-  //     // const dogDetails = data.puppies.find(puppies => puppies.id == id)
-  //     res.render('details',dogDetails)
-  //   }
-  // })
+  fs.readFile ("./data.json", "utf8", (err, data) => {
+    if (err) {
+      console.log("ERROR", err)
+    }
+    else {
+      data = JSON.parse(data)
+      const id = req.params.id
+      const dogDetails = data.puppies.find(puppies => puppies.id == id)
+      res.render('details',dogDetails)
+    }
+  })
 }) 
 
+//Routing to dog editing page
 router.get('/:id/edit', (req,res) => {
   fs.readFile ("./data.json", "utf8", (err, data) => {
     if (err) {
@@ -40,6 +36,7 @@ router.get('/:id/edit', (req,res) => {
   })
 }) 
 
+//Add edits to data.json and redirect to new updated dog page
 router.post('/:id/edit', (req,res) => {
   fs.readFile ("./data.json", "utf8", (err, data) => {
     if (err) {
@@ -52,14 +49,10 @@ router.post('/:id/edit', (req,res) => {
       dogDetails.name = req.body.name
       dogDetails.breed = req.body.breed
       dogDetails.owner = req.body.owner
-      //const updatedDog = const updatedDog = JSON.stringify(dogDetails,null,2)
-      
       fs.writeFile("./data.json", JSON.stringify(data,null,2), (err) => {
         if (err) {
           throw err
         } else {
-        console.log(typeof dogDetails)
-        console.log(JSON.stringify(dogDetails))
         console.log("Your changes have been made!")
         res.redirect(`/puppies/${id}`)
         }
