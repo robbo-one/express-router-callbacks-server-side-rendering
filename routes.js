@@ -1,6 +1,9 @@
 const express = require('express')
 const data = require('./data.json')
 const fs = require('fs')
+const funcs = require('./funcs.js')
+const { writeFile } = require('./funcs.js')
+
 
 const router = express()
 
@@ -25,30 +28,18 @@ router.post('/:id/edit', (req, res) => {
     updatePuppy.owner = req.body.owner
     delete updatePuppy._locals
 
-  // const newPuppiesObj = data.puppies.map(val => {
-
-  //   if(val === updatePuppy){
-
-  //      val = updatePuppy
-
-  //   }
-
-  // })
-  // console.log(newPuppiesObj)
-
-  // data.puppies[id -1] = updatePuppy
-console.log(data.puppies)
 
   const newPup = JSON.stringify(data, null, 2)
 
-  fs.writeFile('data.json', newPup, 'utf8', (err) => {
-    if (err) {
-      return console.log(err)
-    } else {
-    console.log("Data saved!")
-    }
-  })
+  writeFile('data.json', newPup)
 
+  // fs.writeFile('data.json', newPup, 'utf8', (err) => {
+  //   if (err) {
+  //     return console.log(err)
+  //   } else {
+  //   console.log("Data saved!")
+  //   }
+  // })
   res.redirect(`/puppies/${id}`)
 })
 

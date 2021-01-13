@@ -2,6 +2,8 @@ const express = require('express')
 const fs = require('fs')
 const hbs = require('express-handlebars')
 const routes = require('./routes')
+const { readFile } = require('./funcs.js')
+
 
 const server = express()
 
@@ -17,8 +19,11 @@ server.set('view engine', 'hbs')
 server.use('/puppies', routes)
 
 server.get('/', (req, res) => {
-  fs.readFile('./data.json', 'utf-8', (err, data) => {
-    data = JSON.parse(data)
+  // fs.readFile('./data.json', 'utf-8', (err, data) => {
+  // data = JSON.parse(data)
+  // res.render('home', data)
+  readFile('./data.json', data => {
+    console.log(data)
     res.render('home', data)
   }) 
 })
