@@ -2,20 +2,28 @@
 const express = require('express')
 const fs = require('fs')
 const router = express.Router()
+const func = require('./utilities/functions')
+
 
 router.get('/:id', (req,res) => {
-  fs.readFile ("./data.json", "utf8", (err, data) => {
-    if (err) {
-      console.log("ERROR", err)
-    }
-    else {
-      data = JSON.parse(data)
-      const id = req.params.id
-      // console.log(data)
-      const dogDetails = data.puppies.find(puppies => puppies.id == id)
-      res.render('details',dogDetails)
-    }
-  })
+  
+  func.importDetailsAsObject(data => res.render('details',data))
+  
+  const id = req.params.id
+  const data = data.puppies.find(puppies => puppies.id == id)
+  
+
+  // fs.readFile ("./data.json", "utf8", (err, data) => {
+  //   if (err) {
+  //     console.log("ERROR", err)
+  //   }
+  //   else {
+  //     // data = JSON.parse(data)
+  //     // const id = req.params.id
+  //     // const dogDetails = data.puppies.find(puppies => puppies.id == id)
+  //     res.render('details',dogDetails)
+  //   }
+  // })
 }) 
 
 router.get('/:id/edit', (req,res) => {
@@ -27,7 +35,6 @@ router.get('/:id/edit', (req,res) => {
       data = JSON.parse(data)
       const id = req.params.id
       const dogDetails = data.puppies.find(puppies => puppies.id == id)
-
       res.render('edit', dogDetails)
     }
   })

@@ -3,7 +3,7 @@ const hbs = require('express-handlebars')
 const fs = require('fs')
 const server = express()
 const router = require('./routes')
-
+const func = require('./utilities/functions')
 
 // Server configuration
 server.use(express.static('public'))
@@ -16,18 +16,11 @@ server.set('view engine', 'hbs')
 // Your routes/router(s) should go here
 
 server.get('/', (req,res) => {
-  fs.readFile ("./data.json", "utf8", (err, data) => {
-    if (err) {
-      console.log("ERROR", err)
-    }
-    else {
-      data = JSON.parse(data)
-      res.render('home', data)
-    }
-  })
+  func.importDetailsAsObject (data => res.render('home', data))
 })
 
 server.use ('/puppies', router)
  server.use ('/puppies/:id/edit', router)
+server.use (func, router)
 
 module.exports = server
