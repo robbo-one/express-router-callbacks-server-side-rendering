@@ -1,11 +1,11 @@
 const express = require('express')
 const fs = require('fs')
-const data = require('./data.json')
-// const { defaultMaxListeners } = require('stream')
+const data = require('../data.json')
 const router = express.Router()
 
 
 
+// recieving puppy id, reads json file and shows puppies
 
 router.get('/:id', (req, res) => {
   fs.readFile('./data.json', 'utf-8', (err, data) => {
@@ -23,6 +23,9 @@ router.get('/:id', (req, res) => {
       }
       })
     })
+
+    // shows individual puppy deatails and edit option.
+
     router.get('/:id/edit', (req, res) => {
       fs.readFile('./data.json', 'utf-8', (err, data) => {
     
@@ -40,6 +43,7 @@ router.get('/:id', (req, res) => {
           })
         })
 
+        // takes new details and re writes original details of that specific puppy
 
         router.post('/:id/edit', (req, res) => {
           const id = req.params.id
