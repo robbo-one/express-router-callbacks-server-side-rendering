@@ -53,6 +53,21 @@
       "owner": "Ricky",
       "image": "/images/puppy7.jpg",
       "breed": "Labrador"
+    },
+    {
+      "id": 8,
+      "name": "Bernie",
+      "owner": "Lara",
+      "image": "https://i.pinimg.com/originals/9a/59/b7/9a59b7283ba01e60fb58d9e0301c2250.jpg",
+      "breed": "St Bernard",
+      "_locals": {}
+    },
+    {
+      "id": 9,
+      "name": "ssf",
+      "owner": "swetwetwert",
+      "image": "https://photos.puppyspot.com/7/listing/601297/photo/4917021_medium.jpg",
+      "breed": "ses"
     }
   ],
   "_locals": {}

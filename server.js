@@ -18,5 +18,29 @@ server.set('view engine', 'hbs')
 server.get('/', (req, res) => {
   res.render('home', puppies)
 })
+
+server.get('/addPuppy', (req, res) => {
+  res.render('addPuppy', puppies)
+})
+
+server.post('/addPuppy', (req, res) => {
+  let newPuppy = {
+    id : puppies.puppies.length + 1,
+    name : req.body.name,
+    owner : req.body.owner,
+    image : req.body.image,
+    breed : req.body.breed,
+  }
+  puppies.puppies.push(newPuppy)
+  fs.writeFile('./data.json', JSON.stringify(puppies, null, 2), (err) => {
+    if (err){
+      throw err;
+    }
+    console.log("Your new puppy has been saved.")
+  })
+  console.log(puppies)
+  res.redirect('/')
+})
+
 server.use('/puppies', routes)
 module.exports = server
