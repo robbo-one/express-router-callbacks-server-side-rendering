@@ -12,17 +12,17 @@ function readingFile(callback) {
     }
 
 
-// function writingFile(callback) {
-//     fs.writeFile("./data.json", JSON.stringify(puppyInfo, null, 2), "utf8", (err) => {
-//         if (err) {
-//             console.log("there is an error: ", err)
-//         } else {
-//             callback(res.redirect("../" + req.params.id))
-//         }
-//     })
-// }
+function writingFile(puppyInfo, callback) {
+    fs.writeFile("./data.json", JSON.stringify(puppyInfo, null, 2), "utf8", (err) => {
+        if (err) {
+            console.log("there is an error: ", err)
+        } else {
+            callback()
+        }
+    })
+}
 
 module.exports = {
-    // writingFile: writingFile,
+    writingFile: writingFile,
     readingFile: readingFile
 }

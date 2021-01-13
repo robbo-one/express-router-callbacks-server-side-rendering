@@ -84,13 +84,16 @@ router.post('/:id/edit', (req, res) => {
             viewData.owner = req.body.owner
             viewData.breed = req.body.breed
 
-            fs.writeFile("./data.json", JSON.stringify(puppyInfo, null, 2), "utf8", (err) => {
-                if (err) {
-                    console.log("there is an error: ", err)
-                } else {
-                    res.redirect("../" + req.params.id)
-                }
+            readWrite.writingFile(puppyInfo, redirect => {
+                res.redirect("../" + req.params.id)
             })
+            // fs.writeFile("./data.json", JSON.stringify(puppyInfo, null, 2), "utf8", (err) => {
+            //     if (err) {
+            //         console.log("there is an error: ", err)
+            //     } else {
+            //         res.redirect("../" + req.params.id)
+            //     }
+            // })
         })
          
     //     }
