@@ -2,7 +2,7 @@
   "puppies": [
     {
       "id": 1,
-      "name": "do",
+      "name": "steve2",
       "owner": "Fred",
       "image": "/images/puppy1.jpg",
       "breed": "Labrador"
@@ -37,7 +37,7 @@
     },
     {
       "id": 6,
-      "name": "Bella",
+      "name": "crackers",
       "owner": "Brianna",
       "image": "/images/puppy6.jpg",
       "breed": "Labrador"
