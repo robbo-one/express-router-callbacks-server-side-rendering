@@ -62,6 +62,7 @@ router.post('/:id/edit', (req, res) => {
         image : "",
         breed: ""
      }
+
      fs.readFile('./data.json', 'utf8', (err, data) => {
         if (err) {
             console.log('There was an error', err)
@@ -69,17 +70,19 @@ router.post('/:id/edit', (req, res) => {
               let puppyInfo = {
             ...JSON.parse(data)
             }
-              viewData = puppyInfo.puppies.find(image => image.id == req.params.id)
-            //   JSON.stringify(viewData)
-              fs.writeFile("./data.json",JSON.stringify(viewData), (err) => {
+              viewData = puppyInfo.puppies.find(puppy => puppy.id == req.params.id)
+            
+              viewData.name = req.body.name
+              viewData.owner = req.body.owner
+              viewData.breed = req.body.breed
+
+              fs.writeFile("./data.json",JSON.stringify(puppyInfo, null, 2),"utf8", (err) => {
                 if(err) {
                     console.log("there is an error: " , err)
                 } else {
                     res.redirect("../" + req.params.id)
                 }
               })
-
-            //   res.redirect("../" + req.params.id)
             }
 
         })
