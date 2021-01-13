@@ -43,16 +43,16 @@ router.post("/:id/edit", (req, res) => {
 
       for (let i = 0; i < data.puppies.length; i++) {
         if (data.puppies[i].id == req.params.id) {
-          data.puppies[i] = editedData;
-          data.puppies[i].id = req.params.id;
+          data.puppies[i].name = editedData.name
+          data.puppies[i].owner = editedData.owner
+          data.puppies[i].breed = editedData.breed
         }
       }
-      const stringData = JSON.stringify(data);
-      fs.writeFile("./data.json", stringData, (err) => {
+      const stringData = JSON.stringify(data, null , 2);
+      fs.writeFile("./data.json", stringData, 'utf-8', (err) => {
         if (err) throw err;
-        console.log("this works baby!!");
       });
-      res.render('details', data.puppies);
+      res.redirect('/puppies/' + req.params.id);
     }
   });
 });
