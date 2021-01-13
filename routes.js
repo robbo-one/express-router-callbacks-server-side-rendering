@@ -16,7 +16,7 @@ routes.post('/:id/edit', (req,res) => {
   puppy.name = req.body.name
   puppy.breed = req.body.breed
   puppy.owner = req.body.owner
-  fs.writeFile('./data.json', JSON.stringify(puppies), (err) => {
+  fs.writeFile('./data.json', JSON.stringify(puppies, null, 2), (err) => {
     if (err){
       throw err;
     }
