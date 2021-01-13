@@ -2,10 +2,10 @@
   "puppies": [
     {
       "id": 1,
-      "name": "steve2",
-      "owner": "Fred",
+      "name": "steve",
+      "owner": "free doggo",
       "image": "/images/puppy1.jpg",
-      "breed": "Labrador"
+      "breed": "dog"
     },
     {
       "id": 2,

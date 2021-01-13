@@ -63,13 +63,9 @@ router.post('/:id/edit', (req, res) => {
       console.log('big error', err)
     } else {
       const foundPuppy = puppiesList.puppies.find(puppy => puppy.id == puppyId)
-      //  foundPuppy = updatedPuppy
        Object.assign(foundPuppy, updatedPuppy)
-      // foundPuppy.name = updatedPuppy.name
       const puppyList = JSON.stringify(puppiesList, null, 2)
       fs.writeFile('./data.json', puppyList, 'utf8', (err, puppyData) =>{
-        // puppyData = Object.assign(foundPuppy, updatedPuppy)
-        // updatedPuppy = JSON.stringify(puppyData)
         if(err){
           console.log(err)
         }else{ 
@@ -79,5 +75,44 @@ router.post('/:id/edit', (req, res) => {
   }
 })
 })
+
+
+//updates the page
+router.post('/:id/edit', (req, res) => {
+  let updatedPuppy = req.body
+  getPuppies((puppiesList) => {
+    const puppyId = req.params.id
+      updatePuppy()
+      const puppyList = JSON.stringify(puppiesList, null, 2)
+      fs.writeFile('./data.json', puppyList, 'utf8', (err, puppyData) =>{
+        if(err){
+          console.log(err)
+        }else{ 
+        res.redirect('/puppies/' + puppyId)
+        }
+      })
+})
+})
+
+function  updatePuppy(){
+  Object.assign(foundPuppy, updatedPuppy)
+}
+
+function getPuppies(callback) {
+  fs.readFile('./data.json', 'utf8', (err, filecontents) => {
+    if(err){
+      console.log('big error', err)
+    } else {
+      const puppiesList = JSON.parse(filecontents)
+      callback(puppiesList)
+    }
+  })
+}
+
+function getPuppy(puppiesList, puppyId) {
+  return puppiesList.puppies.find(puppy => puppy.id == puppyId)
+}
+
+
 
 module.exports = router
