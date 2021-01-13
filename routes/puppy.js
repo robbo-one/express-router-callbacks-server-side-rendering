@@ -1,6 +1,6 @@
 const express = require('express')
-const fs = require('fs')
-const readWrite = require("./readWrite")
+// const fs = require('fs')
+const readWrite = require("../readWrite")
 
 const router = express.Router()
 
@@ -85,6 +85,7 @@ router.post('/:id/edit', (req, res) => {
             viewData.breed = req.body.breed
 
             readWrite.writingFile(puppyInfo, redirect => {
+                // console.log(res.redirect("../" + req.params.id))
                 res.redirect("../" + req.params.id)
             })
             // fs.writeFile("./data.json", JSON.stringify(puppyInfo, null, 2), "utf8", (err) => {

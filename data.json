@@ -2,10 +2,10 @@
   "puppies": [
     {
       "id": 1,
-      "name": "Fidoaaaa",
-      "owner": "Freddddd",
+      "name": "Fido",
+      "owner": "Fred",
       "image": "/images/puppy1.jpg",
-      "breed": "Labradorsssss"
+      "breed": "Labrador"
     },
     {
       "id": 2,
@@ -16,10 +16,10 @@
     },
     {
       "id": 3,
-      "name": "Magnumaaaa",
-      "owner": "Michaeldddd",
+      "name": "Magnum",
+      "owner": "Michael",
       "image": "/images/puppy3.jpg",
-      "breed": "Rottweilerssss"
+      "breed": "Rottweiler"
     },
     {
       "id": 4,
