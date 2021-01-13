@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const fileFunc = require('./fileReader')
 const fs = require('fs')
 
 router.get('/:id', (req, res) => {
@@ -48,10 +49,7 @@ router.post("/:id/edit", (req, res) => {
           data.puppies[i].breed = editedData.breed
         }
       }
-      const stringData = JSON.stringify(data, null , 2);
-      fs.writeFile("./data.json", stringData, 'utf-8', (err) => {
-        if (err) throw err;
-      });
+      fileFunc.writingFile(data)
       res.redirect('/puppies/' + req.params.id);
     }
   });
@@ -60,4 +58,4 @@ router.post("/:id/edit", (req, res) => {
 
 
 
-module.exports= router
+module.exports = router
