@@ -22,7 +22,6 @@ routes.post('/:id/edit', (req,res) => {
     }
     console.log("Your edits have been saved.")
   })
-  //console.log(puppies)
   res.redirect(`/puppies/${id}`)
 })
 

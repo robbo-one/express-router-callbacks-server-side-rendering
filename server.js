@@ -38,7 +38,6 @@ server.post('/addPuppy', (req, res) => {
     }
     console.log("Your new puppy has been saved.")
   })
-  console.log(puppies)
   res.redirect('/')
 })
 

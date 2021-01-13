@@ -1,6 +1,7 @@
 const server = require("../server")
 const request = require("supertest")
 const cheerio = require("cheerio")
+const puppies = require('../data.json')
 
 test ("tests are running", () => {
   expect(2).toBeGreaterThan(1)
@@ -25,3 +26,14 @@ test ("there are more than three puppies", done => {
       done()
   })
 })
+
+// test ("adding new puppy makes array one longer", done => {
+//   const prevLength = puppies.puppies.length
+//   request(server)
+//   .get('/addPuppy')
+//   .end((err, res) => {
+//     const actual = puppies.puppies.length
+//     expect(actual).toBeGreaterThan(prevLength)
+//     done()
+//   })
+// })
