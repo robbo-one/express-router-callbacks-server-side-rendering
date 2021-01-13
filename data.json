@@ -41,10 +41,11 @@
     },
     {
       "id": 6,
-      "name": "Bella",
+      "name": "CHAD",
       "owner": "Brianna",
       "image": "/images/puppy6.jpg",
-      "breed": "Labrador"
+      "breed": "Labrador",
+      "_locals": {}
     },
     {
       "id": 7,
