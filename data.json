@@ -49,5 +49,12 @@
       "image": "/images/puppy7.jpg",
       "breed": "Labrador"
     }
+    {
+      "id": 8,
+      "name": "Kotya",
+      "owner": "Julia",
+      "image": "/images/kotya-cat.jpg",
+      "breed": "Cat"
+    }
   ]
 }
