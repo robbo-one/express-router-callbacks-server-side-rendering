@@ -17,6 +17,10 @@ server.set('view engine', 'hbs')
 // Your routes/router(s) should go here
 server.use('/puppies', routes)
 
+server.get('/', (req, res) => {
+  res.redirect('/puppies/')
+})
+
 
 
 
