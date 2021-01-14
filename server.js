@@ -16,7 +16,7 @@ server.set('view engine', 'hbs')
 // Your routes/router(s) should go here
 
 server.get('/', (req,res) => {
-  func.importDetailsAsObject (data => res.render('home', data))
+  func.getDoggieData (data => res.render('home', data))
 })
 
 server.use ('/puppies', router)
