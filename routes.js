@@ -24,15 +24,15 @@ router.post('/:id/edit', (req, res) => {
   const updatePuppy = data.puppies.find(val => val.id == id)
   
     updatePuppy.name = req.body.name
-    updatePuppy.breed = req.body.breed
-    updatePuppy.owner = req.body.owner
+    updatePuppy.breed = req.body.breed 
+    updatePuppy.owner = req.body.owner 
+    
+
+    const newPup = JSON.stringify(data, null, 2)
+    
+    writeFile('data.json', newPup)
+    
     delete updatePuppy._locals
-
-
-  const newPup = JSON.stringify(data, null, 2)
-
-  writeFile('data.json', newPup)
-
   // fs.writeFile('data.json', newPup, 'utf8', (err) => {
   //   if (err) {
   //     return console.log(err)

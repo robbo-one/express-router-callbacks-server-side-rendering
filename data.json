@@ -12,7 +12,8 @@
       "name": "Coco",
       "owner": "Chloe",
       "image": "/images/puppy2.jpg",
-      "breed": "Labrador"
+      "breed": "Labrador",
+      "_locals": {}
     },
     {
       "id": 3,
@@ -40,7 +41,8 @@
       "name": "Bella",
       "owner": "Brianna",
       "image": "/images/puppy6.jpg",
-      "breed": "Labrador"
+      "breed": "Labrador",
+      "_locals": {}
     },
     {
       "id": 7,
