@@ -120,6 +120,13 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/71wNWT4zSdL._AC_SX425_.jpg",
       "breed": "whoknows",
       "_locals": {}
+    },
+    {
+      "id": 17,
+      "name": "Bella",
+      "owner": "Isaac",
+      "image": "https://i.pinimg.com/originals/2f/8b/49/2f8b49c61e413bb0ac445d0b9d60d179.jpg",
+      "breed": "Labrador"
     }
   ],
   "_locals": {}
