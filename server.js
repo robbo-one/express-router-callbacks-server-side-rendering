@@ -12,6 +12,11 @@ server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
 // Your routes/router(s) should go here
+server.get('/', (req, res) => {
+console.log("Pupparazzi")
+})
 
 
 module.exports = server
+
+
