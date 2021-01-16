@@ -1,7 +1,9 @@
 const express = require('express')
 const fs = require('fs')
 const hbs = require('express-handlebars')
+const routes = require('./routes.js')
 const { readFile } = require('./funcs.js')
+
 
 const server = express()
 
@@ -9,18 +11,20 @@ const server = express()
 server.use(express.static('public'))
 server.use(express.urlencoded({ extended: false }))
 
+
+
 // Handlebars configuration
 server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
 // Your routes/router(s) should go here
-//server.use('/puppies', routes)
+server.use('/puppies', routes)
 
 
 server.get('/', (req, res) => {
-  console.log("Pupparazzi")
+  //console.log("Pupparazzi")
   readFile('./data.json', data => {
-    console.log(data)
+    //console.log(data)
     res.render('home', data)
   }) 
 })
