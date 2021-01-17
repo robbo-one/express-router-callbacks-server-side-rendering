@@ -13,8 +13,12 @@ router.get('/:id', (req, res) => {
     res.render('details', chosenPuppy)
 })
 
-
-
+//Route to get to form to edit puppy
+router.get('/:id/edit', (req, res) => {
+  id = req.params.id
+  const updatePuppy = data.puppies.find(val => val.id == id)
+    res.render('edit', updatePuppy)
+})
 
 
 
