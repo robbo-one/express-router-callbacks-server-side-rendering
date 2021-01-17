@@ -1,5 +1,5 @@
 const express = require('express')
-const fs = require('fs')
+//const fs = require('fs')
 const hbs = require('express-handlebars')
 const routes = require('./routes.js')
 const { readFile } = require('./funcs.js')

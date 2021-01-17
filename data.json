@@ -2,10 +2,11 @@
   "puppies": [
     {
       "id": 1,
-      "name": "Fido",
+      "name": "Bobby",
       "owner": "Fred",
       "image": "/images/puppy1.jpg",
-      "breed": "Labrador"
+      "breed": "Labrador",
+      "_locals": {}
     },
     {
       "id": 2,
@@ -17,16 +18,18 @@
     {
       "id": 3,
       "name": "Magnum",
-      "owner": "Michael",
+      "owner": "wilma",
       "image": "/images/puppy3.jpg",
-      "breed": "Rottweiler"
+      "breed": "Beagle",
+      "_locals": {}
     },
     {
       "id": 4,
       "name": "Sadie",
       "owner": "Sam",
       "image": "/images/puppy4.jpg",
-      "breed": "Labrador"
+      "breed": "Labrador",
+      "_locals": {}
     },
     {
       "id": 5,
