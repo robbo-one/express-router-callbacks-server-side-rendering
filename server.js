@@ -17,10 +17,10 @@ server.use(express.urlencoded({ extended: false }))
 server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
-// Your routes/router(s) should go here
+//Use and define path router will see
 server.use('/puppies', routes)
 
-
+//Get server running with default route
 server.get('/', (req, res) => {
   //console.log("Pupparazzi")
   readFile('./data.json', data => {
@@ -30,6 +30,12 @@ server.get('/', (req, res) => {
 })
 
 
+
+
+
 module.exports = server
 
-
+//Initial code to read file - now moved into readFile function:
+// fs.readFile('./data.json', 'utf-8', (err, data) => {
+// data = JSON.parse(data)
+// res.render('home', data)
